@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login / Register – Hidara Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.auth-wrap {
+  min-height: 100vh; background: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  padding: 88px 16px 40px; position: relative; overflow: hidden;
+}
+.auth-wrap::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 20% 30%, rgba(26,86,219,0.07) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 70%, rgba(240,165,0,0.07) 0%, transparent 50%);
+  pointer-events: none;
+}
+.auth-box { width: 100%; max-width: 880px; position: relative; z-index: 1; }
+.auth-card { background: var(--card); border: 1px solid var(--border); border-radius: 24px; overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,0.15); }
+.auth-left {
+  background: linear-gradient(145deg, #0d1b3e, #1a3570); padding: 50px 40px;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; overflow: hidden; min-height: 500px;
+}
+.auth-left::before { content: ''; position: absolute; top: -60px; right: -60px; width: 240px; height: 240px; background: radial-gradient(circle, rgba(240,165,0,0.18), transparent 70%); border-radius: 50%; }
+.auth-left-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 36px; }
+.auth-left-logo img { height: 40px; border-radius: 8px; }
+.auth-left-logo span { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 900; color: white; letter-spacing: 0.06em; white-space: nowrap; }
+.auth-left h2 { font-family: 'Playfair Display', serif; font-size: 1.85rem; font-weight: 900; color: white; line-height: 1.25; margin-bottom: 14px; }
+.auth-left h2 span { color: #f0a500; }
+.auth-left p { color: rgba(255,255,255,0.62); font-size: 0.9rem; line-height: 1.7; margin-bottom: 28px; }
+.auth-feat { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.auth-feat-ico { width: 36px; height: 36px; background: rgba(240,165,0,0.15); border: 1px solid rgba(240,165,0,0.25); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+.auth-feat-txt { color: rgba(255,255,255,0.8); font-size: 0.87rem; font-weight: 500; }
+.auth-right { padding: 48px 44px; }
+.auth-tabs { display: flex; background: var(--card2); border-radius: 12px; padding: 4px; margin-bottom: 28px; border: 1px solid var(--border); gap: 4px; }
+.atab { flex: 1; padding: 10px; border: none; background: none; border-radius: 9px; font-size: 0.9rem; font-weight: 600; color: var(--txt-m); cursor: pointer; transition: all 0.25s; font-family: 'DM Sans', sans-serif; }
+.atab.active { background: linear-gradient(135deg, #1a56db, #2563eb); color: white; box-shadow: 0 4px 12px rgba(37,99,235,0.35); }
+.aform { display: none; animation: formIn 0.3s ease; }
+.aform.active { display: block; }
+@keyframes formIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+.aform h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--txt); margin-bottom: 6px; }
+.aform-sub { color: var(--txt-m); font-size: 0.88rem; margin-bottom: 22px; }
+.afield { margin-bottom: 14px; }
+.afield label { display: block; font-size: 0.76rem; font-weight: 700; color: var(--txt-m); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+.ainput-wrap { position: relative; }
+.ainput-wrap i { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); color: var(--txt-m); font-size: 0.9rem; }
+.ainput { width: 100%; padding: 11px 13px 11px 38px; background: var(--card2); border: 1.5px solid var(--border); border-radius: 10px; color: var(--txt); font-size: 0.9rem; font-family: 'DM Sans', sans-serif; outline: none; transition: all 0.2s; }
+.ainput:focus { border-color: #1a56db; box-shadow: 0 0 0 3px rgba(26,86,219,0.1); }
+.ainput::placeholder { color: var(--txt-m); }
+.ainput option { background: var(--card); }
+.forgot-link { display: block; text-align: right; font-size: 0.79rem; color: #f0a500; text-decoration: none; margin-top: 4px; }
+.asubmit { width: 100%; padding: 13px; background: linear-gradient(135deg, #1a56db, #0d1b3e); color: white; border: none; border-radius: 10px; font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif; margin-top: 6px; }
+.asubmit:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(26,86,219,0.4); }
+.adivider { text-align: center; color: var(--txt-m); font-size: 0.78rem; margin: 16px 0; position: relative; }
+.adivider::before, .adivider::after { content: ''; position: absolute; top: 50%; width: 38%; height: 1px; background: var(--border); }
+.adivider::before { left: 0; } .adivider::after { right: 0; }
+.soc-auth { display: flex; gap: 10px; }
+.soc-auth-btn { flex: 1; padding: 10px; border-radius: 10px; border: 1.5px solid var(--border); background: var(--card2); color: var(--txt); font-size: 0.84rem; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif; display: flex; align-items: center; justify-content: center; gap: 7px; }
+.soc-auth-btn:hover { border-color: #1a56db; }
+.switch-link { text-align: center; font-size: 0.84rem; color: var(--txt-m); margin-top: 18px; }
+.switch-link a { color: #f0a500; text-decoration: none; font-weight: 600; }
+.switch-link a:hover { text-decoration: underline; }
+.terms-note { font-size: 0.75rem; color: var(--txt-m); text-align: center; margin-top: 10px; }
+.terms-note a { color: #f0a500; }
+@media (max-width: 767px) { .auth-left { display: none; } .auth-right { padding: 32px 24px; } }
+</style>
+</head>
+<body>
+
+<nav id="navbar" class="navbar navbar-expand-lg fixed-top">
+  <div class="container-fluid px-4 px-lg-5">
+    <a href="index.html" class="nav-logo text-decoration-none">
+      <img src="logo.jpeg" alt="Hidara Academy Logo" class="nav-logo-img">
+      <span class="nav-brand-text">HIDARA ACADEMY</span>
+    </a>
+    <div class="d-flex align-items-center gap-2 ms-auto">
+      <button class="dark-toggle" id="darkToggle" title="Toggle dark mode"><i class="bi bi-moon-stars-fill"></i></button>
+      <a href="index.html" class="nav-login"><i class="bi bi-house me-1"></i>Home</a>
+    </div>
+  </div>
+</nav>
+
+<div class="auth-wrap">
+  <div class="auth-box">
+    <div class="auth-card">
+      <div class="row g-0">
+        <div class="col-lg-5 auth-left">
+          <div class="auth-left-logo">
+            <img src="logo.jpeg" alt="logo">
+            <span>HIDARA ACADEMY</span>
+          </div>
+          <h2>Start Your <span>Learning</span> Journey</h2>
+          <p>Join students building confidence, knowledge, and character with Hidara Academy's personalised online courses.</p>
+          <div class="auth-feat"><div class="auth-feat-ico">🎓</div><div class="auth-feat-txt">Access all 5 programs online</div></div>
+          <div class="auth-feat"><div class="auth-feat-ico">💬</div><div class="auth-feat-txt">24/7 support via Hira AI</div></div>
+          <div class="auth-feat"><div class="auth-feat-ico">📱</div><div class="auth-feat-txt">Track your progress anytime</div></div>
+          <div class="auth-feat"><div class="auth-feat-ico">🌟</div><div class="auth-feat-txt">Personalised learning path</div></div>
+        </div>
+        <div class="col-lg-7 auth-right">
+          <div class="auth-tabs">
+            <button class="atab active" id="loginTab" onclick="switchTab('login')"><i class="bi bi-box-arrow-in-right me-1"></i>Login</button>
+            <button class="atab" id="registerTab" onclick="switchTab('register')"><i class="bi bi-person-plus me-1"></i>Register</button>
+          </div>
+
+          <!-- LOGIN -->
+          <div class="aform active" id="loginForm">
+            <h3>Welcome Back 👋</h3>
+            <p class="aform-sub">Sign in to access your courses and schedule</p>
+            <div class="afield"><label>Email Address</label><div class="ainput-wrap"><i class="bi bi-envelope"></i><input type="email" class="ainput" placeholder="you@example.com"></div></div>
+            <div class="afield"><label>Password</label><div class="ainput-wrap"><i class="bi bi-lock"></i><input type="password" class="ainput" placeholder="••••••••"></div><a href="#" class="forgot-link">Forgot password?</a></div>
+            <button class="asubmit" onclick="handleLogin(this)">Login to My Account <i class="bi bi-arrow-right ms-1"></i></button>
+            <div class="adivider">or continue with</div>
+            <div class="soc-auth">
+              <button class="soc-auth-btn"><i class="bi bi-google text-danger"></i>Google</button>
+              <button class="soc-auth-btn"><i class="bi bi-facebook text-primary"></i>Facebook</button>
+            </div>
+            <div class="switch-link">Don't have an account? <a href="#" onclick="switchTab('register');return false;">Register here</a></div>
+          </div>
+
+          <!-- REGISTER -->
+          <div class="aform" id="registerForm">
+            <h3>Create Account ✨</h3>
+            <p class="aform-sub">Join Hidara Academy and start learning today</p>
+            <div class="row g-3">
+              <div class="col-md-6"><div class="afield mb-0"><label>First Name</label><div class="ainput-wrap"><i class="bi bi-person"></i><input type="text" class="ainput" placeholder="Ayesha"></div></div></div>
+              <div class="col-md-6"><div class="afield mb-0"><label>Last Name</label><div class="ainput-wrap"><i class="bi bi-person"></i><input type="text" class="ainput" placeholder="Khan"></div></div></div>
+            </div>
+            <div class="afield mt-3"><label>Email Address</label><div class="ainput-wrap"><i class="bi bi-envelope"></i><input type="email" class="ainput" placeholder="you@example.com"></div></div>
+            <div class="afield"><label>Phone Number</label><div class="ainput-wrap"><i class="bi bi-telephone"></i><input type="tel" class="ainput" placeholder="+91 XXXXX XXXXX"></div></div>
+            <div class="afield"><label>Course Interested In</label><div class="ainput-wrap"><i class="bi bi-book"></i><select class="ainput" style="padding-left:38px"><option disabled selected>Select a course...</option><option>Spoken English – Beginner</option><option>Spoken English – Pre-Intermediate</option><option>Spoken English – Intermediate</option><option>Phonics</option><option>Handwriting Improvement</option><option>Academic Subjects</option><option>Islamic Studies</option></select></div></div>
+            <div class="afield"><label>Password</label><div class="ainput-wrap"><i class="bi bi-lock"></i><input type="password" class="ainput" placeholder="Min 8 chars, 1 number, 1 uppercase"></div></div>
+            <button class="asubmit" onclick="handleRegister(this)">Create My Account <i class="bi bi-arrow-right ms-1"></i></button>
+            <div class="terms-note mt-2">By registering, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a></div>
+            <div class="switch-link">Already have an account? <a href="#" onclick="switchTab('login');return false;">Sign in</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Dark mode
+const body = document.body;
+const savedDark = localStorage.getItem('hidaraDark') === 'true';
+if (savedDark) body.classList.add('dark-mode');
+const dtBtn = document.getElementById('darkToggle');
+if (dtBtn) {
+  const ico = dtBtn.querySelector('i');
+  if (ico) ico.className = savedDark ? 'bi bi-sun-fill' : 'bi bi-moon-stars-fill';
+  dtBtn.addEventListener('click', () => {
+    const nowDark = !body.classList.contains('dark-mode');
+    body.classList.toggle('dark-mode', nowDark);
+    localStorage.setItem('hidaraDark', nowDark);
+    if (ico) ico.className = nowDark ? 'bi bi-sun-fill' : 'bi bi-moon-stars-fill';
+  });
+}
+
+// Navbar
+const nb = document.getElementById('navbar');
+window.addEventListener('scroll', () => nb && nb.classList.toggle('scrolled', window.scrollY > 50));
+
+// Tab switch
+function switchTab(tab) {
+  document.getElementById('loginForm').classList.toggle('active', tab==='login');
+  document.getElementById('registerForm').classList.toggle('active', tab==='register');
+  document.getElementById('loginTab').classList.toggle('active', tab==='login');
+  document.getElementById('registerTab').classList.toggle('active', tab==='register');
+}
+const p = new URLSearchParams(location.search);
+if (p.get('tab') === 'register') switchTab('register');
+
+function handleLogin(btn) {
+  btn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Signing in...';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.innerHTML = '✅ Login Successful!';
+    btn.style.background = 'linear-gradient(135deg,#10b981,#059669)';
+    setTimeout(() => { window.location.href = 'index.html'; }, 1200);
+  }, 1500);
+}
+
+function handleRegister(btn) {
+  btn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Creating...';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.innerHTML = '✅ Account Created!';
+    btn.style.background = 'linear-gradient(135deg,#10b981,#059669)';
+    setTimeout(() => { switchTab('login'); btn.innerHTML = 'Create My Account <i class="bi bi-arrow-right ms-1"></i>'; btn.disabled = false; btn.style.background = ''; }, 1800);
+  }, 1500);
+}
+</script>
+</body>
+</html>

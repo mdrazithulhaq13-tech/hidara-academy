@@ -4,562 +4,474 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hidara Academy – Where Knowledge Meets Character</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- ─── NAV ─── -->
-<nav id="navbar">
-  <a href="#home" class="nav-logo">
-   <img src="logo.jpeg" alt="Hidara Academy Logo" style="height: 48px; width: auto; object-fit: contain;">
-    <div class="nav-logo-text">Hidara <span>Academy</span></div>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#courses">Courses</a></li>
-    <li><a href="#timings">Timings</a></li>
-    <li><a href="#fees">Fees</a></li>
-    <li><a href="#why">Why Us</a></li>
-    <li><a href="#contact" class="nav-cta">Enrol Now</a></li>
-  </ul>
+<!-- ══ NAVBAR ══ -->
+<nav id="navbar" class="navbar navbar-expand-lg fixed-top">
+  <div class="container-fluid px-4 px-lg-5">
+
+    <!-- Logo: image + horizontal text -->
+    <a href="#home" class="nav-logo text-decoration-none">
+      <img src="hidara logo.jpeg" alt="Hidara Academy Logo" class="nav-logo-img">
+      <span class="nav-brand-text">
+        <span>
+        <span class="brand-hidara">HIDARA</span><span class="brand-academy">ACADEMY</span> 
+        </span>
+        <span class="brand-tagline">LEARN · IMPROVE · SUCCEED</span>
+      </span>
+    </a>
+      
+
+    <!-- Hamburger: ONLY on mobile (hidden on desktop via d-lg-none) -->
+    <button class="hamburger d-lg-none" type="button"
+            data-bs-toggle="offcanvas" data-bs-target="#mobileMenu"
+            aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- Desktop links: pill slider -->
+    <div class="d-none d-lg-flex ms-auto me-3">
+      <div class="pill-nav">
+        <span class="pill-active-bg" id="pillBg"></span>
+        <a href="#about"     class="plink">About</a>
+        <a href="#courses"   class="plink">Courses</a>
+        <a href="#timings"   class="plink">Timings</a>
+        <a href="#fees"      class="plink">Fees</a>
+        <a href="#why"       class="plink">Why Us</a>
+        <a href="#contact"   class="plink">Contact</a>
+      </div>
+    </div>
+
+    <!-- Desktop right buttons -->
+    <div class="d-none d-lg-flex align-items-center gap-2">
+      <button class="dark-toggle" id="darkToggle" title="Toggle dark mode">
+        <i class="bi bi-moon-stars-fill"></i>
+      </button>
+      <a href="auth.html" class="nav-login">Login</a>
+      <a href="auth.html?tab=register" class="nav-register">Register</a>
+    </div>
+
+  </div>
 </nav>
 
-<!-- ─── HERO ─── -->
-<section id="home">
-  <div class="hero-bg-pattern"></div>
-  <div class="hero-grid-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-left">
-      <div class="hero-badge">🌟 Online Classes Available</div>
-      <h1 class="hero-title">
-        Where <span class="accent">Knowledge</span> Meets <span class="blue-accent">Character</span>
-      </h1>
-      <p class="hero-tagline">
-        Hidara Academy nurtures confident communicators, strong learners, and spiritually grounded individuals — through personalised, caring education.
-      </p>
-      <div class="hero-actions">
-        <a href="#courses" class="btn-primary">Explore Courses</a>
-        <a href="#contact" class="btn-ghost">Enquire Now</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <div class="stat-num">5+</div>
-          <div class="stat-label">Programs</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">100%</div>
-          <div class="stat-label">Online</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">₹3K</div>
-          <div class="stat-label">Affordable Fees</div>
-        </div>
-      </div>
+<!-- Mobile Offcanvas Menu -->
+<div class="offcanvas offcanvas-end mobile-offcanvas" tabindex="-1" id="mobileMenu">
+  <div class="offcanvas-header">
+    <div class="d-flex align-items-center gap-2">
+      <img src="hidara logo.jpeg" alt="logo" style="height:34px;border-radius:8px;">
+      <span style="font-family:'Playfair Display',serif;font-weight:900;color:white;font-size:0.9rem;white-space:nowrap;">HIDARA ACADEMY</span>
     </div>
-    <div class="hero-visual">
-      <div class="hero-card-main">
-        <h3>Our Programs at a Glance</h3>
-        <div class="course-pill-grid">
-          <div class="course-pill"><div class="course-pill-icon">🗣️</div><div class="course-pill-name">Spoken English</div></div>
-          <div class="course-pill"><div class="course-pill-icon">📖</div><div class="course-pill-name">Phonics</div></div>
-          <div class="course-pill"><div class="course-pill-icon">✍️</div><div class="course-pill-name">Handwriting</div></div>
-          <div class="course-pill"><div class="course-pill-icon">📚</div><div class="course-pill-name">Academics</div></div>
-          <div class="course-pill"><div class="course-pill-icon">🕌</div><div class="course-pill-name">Islamic Studies</div></div>
-          <div class="course-pill"><div class="course-pill-icon">💻</div><div class="course-pill-name">Online Mode</div></div>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column gap-1 pt-2">
+    <a href="#about"   class="mob-nav-link" data-bs-dismiss="offcanvas"><i class="bi bi-info-circle me-2"></i>About</a>
+    <a href="#courses" class="mob-nav-link" data-bs-dismiss="offcanvas"><i class="bi bi-book me-2"></i>Courses</a>
+    <a href="#timings" class="mob-nav-link" data-bs-dismiss="offcanvas"><i class="bi bi-clock me-2"></i>Timings</a>
+    <a href="#fees"    class="mob-nav-link" data-bs-dismiss="offcanvas"><i class="bi bi-currency-rupee me-2"></i>Fees</a>
+    <a href="#why"     class="mob-nav-link" data-bs-dismiss="offcanvas"><i class="bi bi-star me-2"></i>Why Us</a>
+    <a href="#contact" class="mob-nav-link" data-bs-dismiss="offcanvas"><i class="bi bi-envelope me-2"></i>Contact</a>
+    <hr style="border-color:rgba(255,255,255,0.1)">
+    <button class="mob-dark-btn" id="mobDarkToggle">
+      <i class="bi bi-moon-stars-fill me-2" id="mobDarkIcon"></i>
+      <span id="mobDarkText">Enable Dark Mode</span>
+    </button>
+    <a href="auth.html" class="mob-login-btn" data-bs-dismiss="offcanvas">
+      <i class="bi bi-person-fill me-2"></i>Login / Register
+    </a>
+  </div>
+</div>
+
+<!-- ══ HERO ══ -->
+<section id="home" class="hero-sec">
+  <div class="hero-bg-overlay"></div>
+  <canvas id="heroCanvas" class="hero-canvas"></canvas>
+  <div class="container position-relative" style="z-index:2;">
+    <div class="row align-items-center min-vh-100 pt-5">
+      <div class="col-lg-6 hero-left">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>Online Classes Available
+        </div>
+        <h1 class="hero-title">
+          Where <span class="c-orange">Knowledge</span><br>
+          Meets <span class="c-blue-l">Character</span>
+        </h1>
+        <p class="hero-tagline">Hidara Academy nurtures confident communicators, strong learners, and spiritually grounded individuals — through personalised, caring education.</p>
+        <div class="d-flex gap-3 flex-wrap mb-5">
+          <a href="#courses" class="btn-orange">Explore Courses <i class="bi bi-arrow-right ms-1"></i></a>
+          <a href="#contact" class="btn-outline-white">Enquire Now</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hs"><span class="hs-n" data-target="5">0</span><span class="hs-sym">+</span><div class="hs-l">Programs</div></div>
+          <div class="hs-sep"></div>
+          <div class="hs"><span class="hs-n" data-target="100">0</span><span class="hs-sym">%</span><div class="hs-l">Online</div></div>
+          <div class="hs-sep"></div>
+          <div class="hs"><span class="hs-sym">₹</span><span class="hs-n" data-target="3">0</span><span class="hs-sym">K</span><div class="hs-l">Affordable</div></div>
         </div>
       </div>
-      <div class="floating-badge floating-badge-1">✦ Small Batches</div>
-      <div class="floating-badge floating-badge-2">✦ Personal Attention</div>
+      <div class="col-lg-6 d-none d-lg-block">
+        <div class="hero-card-wrap">
+          <div class="hero-card">
+            <div class="hero-card-bar"><span class="hcb r"></span><span class="hcb y"></span><span class="hcb g"></span><span class="hero-card-title">Our Programs</span></div>
+            <div class="row g-3 p-3">
+              <div class="col-6"><div class="hpill">🗣️ Spoken English</div></div>
+              <div class="col-6"><div class="hpill">📖 Phonics</div></div>
+              <div class="col-6"><div class="hpill">✍️ Handwriting</div></div>
+              <div class="col-6"><div class="hpill">📚 Academics</div></div>
+              <div class="col-6"><div class="hpill">🕌 Islamic Studies</div></div>
+              <div class="col-6"><div class="hpill">💻 Online Mode</div></div>
+            </div>
+          </div>
+          <div class="htag ht1">✦ Small Batches</div>
+          <div class="htag ht2">✦ Personal Attention</div>
+        </div>
+      </div>
     </div>
   </div>
+  <div class="scroll-arrow"><i class="bi bi-chevron-down"></i></div>
 </section>
 
-<!-- ─── ABOUT ─── -->
-<section id="about">
+<!-- ══ ABOUT ══ -->
+<section id="about" class="sec-pad about-sec">
   <div class="container">
-    <div class="about-grid">
-      <div class="about-visual reveal">
-        <div class="about-card-bg">
-          <div class="about-icon-row">
-            <div class="about-icon-box">🎓</div>
-            <div class="about-icon-box">❤️</div>
-            <div class="about-icon-box">🌙</div>
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-5 reveal">
+        <div class="about-dark-card">
+          <div class="adc-glow"></div>
+          <div class="d-flex gap-3 mb-4">
+            <div class="adc-ico">🎓</div><div class="adc-ico">❤️</div><div class="adc-ico">🌙</div>
           </div>
-          <h3>Building Confident, Knowledgeable & Spiritually Grounded Learners</h3>
-          <p>At Hidara Academy, every student receives individual care and a nurturing environment that blends academic excellence with moral and spiritual growth.</p>
-          <div class="about-bottom-pills">
-            <span class="about-pill">Quality Education</span>
-            <span class="about-pill">Personal Growth</span>
-            <span class="about-pill">Character Building</span>
+          <h3 class="adc-title">Building Confident, Knowledgeable & Spiritually Grounded Learners</h3>
+          <p class="adc-text">Every student receives individual care — blending academic excellence with moral and spiritual growth.</p>
+          <div class="d-flex flex-wrap gap-2 mt-4">
+            <span class="adc-pill">Quality Education</span>
+            <span class="adc-pill">Personal Growth</span>
+            <span class="adc-pill">Character Building</span>
           </div>
         </div>
       </div>
-      <div class="about-text reveal">
-        <div class="section-tag">About Us</div>
-        <h2 class="section-title">Why Hidara Academy <span class="gold">Was Founded</span></h2>
-        <p class="section-sub">
-          I started this Academy to help students gain confidence in communication, strengthen their academics, and grow spiritually. My goal is to provide quality education with genuine personal attention — so every child can thrive.
-        </p>
-        <div class="mission-box">
-          <h4>🌟 Our Vision</h4>
-          <p>To create a generation of confident, compassionate, and knowledgeable individuals who excel both in this world and beyond.</p>
+      <div class="col-lg-7 reveal">
+        <span class="sec-label">Who We Are</span>
+        <h2 class="sec-title mt-2 mb-3">Why Hidara Academy <span class="c-orange">Was Founded</span></h2>
+        <p class="sec-sub mb-4">I started this Academy to help students gain confidence in communication, strengthen their academics, and grow spiritually — so every child can thrive with genuine personal attention.</p>
+        <div class="mission-top reveal">
+          <div class="mission-ico">🌟</div>
+          <div><h4 class="mission-h">Our Vision</h4><p class="mission-p">To create a generation of confident, compassionate, and knowledgeable individuals who excel both in this world and beyond.</p></div>
         </div>
-        <div class="mission-box gold-border">
-          <h4>🎯 Our Mission</h4>
-          <p>To provide accessible, high-quality, personalised education in English communication, academics, and Islamic values — through a caring and structured online environment.</p>
+        <div class="row g-3 mt-2">
+          <div class="col-md-6 reveal">
+            <div class="mission-half blue-half">
+              <div class="mission-ico">🎯</div>
+              <div><h4 class="mission-h blue-h">Our Mission</h4><p class="mission-p">Accessible, high-quality, personalised education in English, academics, and Islamic values — online.</p></div>
+            </div>
+          </div>
+          <div class="col-md-6 reveal">
+            <div class="mission-half orange-half">
+              <div class="mission-ico">📖</div>
+              <div><h4 class="mission-h orange-h">Teaching Style</h4><p class="mission-p">Activity-based, interactive methods with small batches for focused attention and practical learning.</p></div>
+            </div>
+          </div>
         </div>
-        <div class="mission-box">
-          <h4>📖 Our Teaching Style</h4>
-          <p>We use activity-based, interactive methods with small batches to ensure every student gets focused attention, practical learning, and the confidence to succeed.</p>
+        <div class="believe-bar mt-3 reveal">
+          <span class="bb-label">We believe in:</span>
+          <span class="bb-t bb-navy">✦ Confidence</span>
+          <span class="bb-t bb-blue">✦ Knowledge</span>
+          <span class="bb-t bb-orange">✦ Character</span>
+          <span class="bb-t bb-outline">✦ Spirituality</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── COURSES ─── -->
-<section id="courses">
+<!-- ══ COURSES ══ -->
+<section id="courses" class="sec-pad courses-sec">
   <div class="container">
-    <div class="courses-header reveal">
-      <div class="section-tag">Programs</div>
-      <h2 class="section-title">Our <span class="gold">Courses & Programs</span></h2>
-      <p class="section-sub">Carefully designed programs for all ages — from young learners to adults — delivered online with warmth and expertise.</p>
+    <div class="text-center mb-5 reveal">
+      <span class="sec-label">Programs</span>
+      <h2 class="sec-title mt-2">Our <span class="c-orange">Courses & Programs</span></h2>
+      <p class="sec-sub mx-auto">Carefully designed programs for all ages — delivered online with warmth and expertise.</p>
     </div>
-    <div class="courses-grid">
 
-      <div class="course-card reveal">
-        <div class="course-icon-wrap bg-blue">🗣️</div>
-        <h3>Spoken English</h3>
-        <p>Build real-world English fluency through structured speaking practice, grammar, and conversation sessions at three progressive levels.</p>
-        <div class="course-tags">
-          <span class="tag tag-blue">Beginner</span>
-          <span class="tag tag-blue">Pre-Intermediate</span>
-          <span class="tag tag-blue">Intermediate</span>
-        </div>
-        <div class="course-meta">
-          <div class="meta-item">👤 <strong>Adults</strong></div>
-          <div class="meta-item">💻 <strong>Online</strong></div>
-          <div class="meta-item">⏱ <strong>2 Months</strong></div>
+    <!-- Duration courses -->
+    <div class="cat-bar reveal"><i class="bi bi-clock-history me-2"></i>Duration-Based Courses<span class="cat-tag">2 Months · Mon–Fri</span></div>
+    <div class="row g-4 mb-5">
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="course-card">
+          <div class="cc-accent orange-accent"></div>
+          <div class="cc-icon orange-icon">🗣️</div>
+          <h3 class="cc-title">Spoken English</h3>
+          <p class="cc-text">Build real-world English fluency through structured speaking practice, grammar, and conversation at three progressive levels.</p>
+          <div class="d-flex flex-wrap gap-2 mb-3"><span class="ctag blue-ctag">Beginner</span><span class="ctag blue-ctag">Pre-Intermediate</span><span class="ctag blue-ctag">Intermediate</span></div>
+          <div class="cc-meta"><span>👤 Adults</span><span>💻 Online</span><span>⏱ 2 Months</span></div>
         </div>
       </div>
-
-      <div class="course-card reveal">
-        <div class="course-icon-wrap bg-gold">📖</div>
-        <h3>Phonics</h3>
-        <p>A solid reading and speaking foundation for young learners using phonetic sounds, blending techniques, and interactive exercises.</p>
-        <div class="course-tags">
-          <span class="tag tag-gold">Basic</span>
-          <span class="tag tag-gold">Advanced</span>
-          <span class="tag tag-gold">Reading Foundation</span>
-        </div>
-        <div class="course-meta">
-          <div class="meta-item">👶 <strong>Kids</strong></div>
-          <div class="meta-item">💻 <strong>Online</strong></div>
-          <div class="meta-item">⏱ <strong>2 Months</strong></div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="course-card">
+          <div class="cc-accent blue-accent"></div>
+          <div class="cc-icon blue-icon">📖</div>
+          <h3 class="cc-title">Phonics</h3>
+          <p class="cc-text">A solid reading and speaking foundation for young learners using phonetic sounds, blending techniques, and interactive exercises.</p>
+          <div class="d-flex flex-wrap gap-2 mb-3"><span class="ctag orange-ctag">Basic</span><span class="ctag orange-ctag">Advanced</span><span class="ctag orange-ctag">Reading Foundation</span></div>
+          <div class="cc-meta"><span>👶 Kids</span><span>💻 Online</span><span>⏱ 2 Months</span></div>
         </div>
       </div>
-
-      <div class="course-card reveal">
-        <div class="course-icon-wrap bg-purple">✍️</div>
-        <h3>Handwriting Improvement</h3>
-        <p>A special program to develop neat, clear, and confident handwriting — improving letter formation, spacing, and overall presentation.</p>
-        <div class="course-tags">
-          <span class="tag">Beginner Friendly</span>
-          <span class="tag">All Ages</span>
-        </div>
-        <div class="course-meta">
-          <div class="meta-item">👤 <strong>All Ages</strong></div>
-          <div class="meta-item">💻 <strong>Online</strong></div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="course-card">
+          <div class="cc-accent teal-accent"></div>
+          <div class="cc-icon teal-icon">📚</div>
+          <h3 class="cc-title">Academic Subjects</h3>
+          <p class="cc-text">School subject tuition with homework support and exam preparation — helping students build strong academic foundations.</p>
+          <div class="d-flex flex-wrap gap-2 mb-3"><span class="ctag">Tuition</span><span class="ctag">Homework Help</span><span class="ctag">Exam Prep</span></div>
+          <div class="cc-meta"><span>🏫 School Students</span><span>💻 Online</span><span>⏱ 2 Months</span></div>
         </div>
       </div>
+    </div>
 
-      <div class="course-card reveal">
-        <div class="course-icon-wrap bg-green">📚</div>
-        <h3>Academic Subjects</h3>
-        <p>School subject tuition with homework support and exam preparation — helping students build strong academic foundations and confidence.</p>
-        <div class="course-tags">
-          <span class="tag">Tuition</span>
-          <span class="tag">Homework Help</span>
-          <span class="tag">Exam Prep</span>
-        </div>
-        <div class="course-meta">
-          <div class="meta-item">🏫 <strong>School Students</strong></div>
-          <div class="meta-item">💻 <strong>Online</strong></div>
-        </div>
-      </div>
-
-      <div class="course-card reveal">
-        <div class="course-icon-wrap bg-teal">🕌</div>
-        <h3>Islamic Studies</h3>
-        <p>Learn Quran basics, essential Duas, Islamic manners, and moral education in a respectful, nurturing environment rooted in Quranic values.</p>
-        <div class="course-tags">
-          <span class="tag">Quran Basics</span>
-          <span class="tag">Duas</span>
-          <span class="tag">Moral Education</span>
-        </div>
-        <div class="course-meta">
-          <div class="meta-item">👶 <strong>Kids & Adults</strong></div>
-          <div class="meta-item">💻 <strong>Online</strong></div>
+    <!-- Flexible courses -->
+    <div class="cat-bar cat-orange reveal"><i class="bi bi-infinity me-2"></i>Flexible / Ongoing Courses<span class="cat-tag orange-cat-tag">Flexible Duration</span></div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="course-card flex-course">
+          <div class="cc-accent purple-accent"></div>
+          <div class="cc-icon purple-icon">✍️</div>
+          <h3 class="cc-title">Handwriting Improvement</h3>
+          <p class="cc-text">A special program to develop neat, clear, and confident handwriting — improving letter formation, spacing, and presentation.</p>
+          <div class="d-flex flex-wrap gap-2 mb-3"><span class="ctag">Beginner Friendly</span><span class="ctag">All Ages</span></div>
+          <div class="cc-meta"><span>👤 All Ages</span><span>💻 Online</span><span>∞ Flexible</span></div>
         </div>
       </div>
-
-      <div class="course-card reveal" style="background: linear-gradient(145deg, var(--navy), #1a3a70); border-color: var(--navy);">
-        <div class="course-icon-wrap" style="background: rgba(255,255,255,0.1)">🌟</div>
-        <h3 style="color:white">Not Sure Which Course?</h3>
-        <p style="color:rgba(255,255,255,0.6)">Talk to us and we'll recommend the best program tailored to your learning goals and schedule.</p>
-        <br>
-        <a href="#contact" class="btn-primary" style="display:inline-block; font-size: 0.88rem; padding: 10px 22px;">Contact Us</a>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="course-card flex-course">
+          <div class="cc-accent green-accent"></div>
+          <div class="cc-icon green-icon">🕌</div>
+          <h3 class="cc-title">Islamic Studies</h3>
+          <p class="cc-text">Learn Quran basics, essential Duas, Islamic manners, and moral education in a respectful, nurturing environment.</p>
+          <div class="d-flex flex-wrap gap-2 mb-3"><span class="ctag">Quran Basics</span><span class="ctag">Duas</span><span class="ctag">Moral Education</span></div>
+          <div class="cc-meta"><span>👶 Kids & Adults</span><span>💻 Online</span><span>∞ Flexible</span></div>
+        </div>
       </div>
-
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="course-card cta-course">
+          <div class="cta-course-glow"></div>
+          <div class="cc-icon" style="background:rgba(255,255,255,0.1)">🌟</div>
+          <h3 class="cc-title" style="color:#fff">Not Sure?</h3>
+          <p class="cc-text" style="color:rgba(255,255,255,0.65)">Talk to us and we'll recommend the best program tailored to your goals.</p>
+          <a href="#contact" class="btn-orange d-inline-block text-decoration-none mt-3">Contact Us</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ─── TIMINGS ─── -->
-<section id="timings">
+<!-- ══ TIMINGS ══ -->
+<section id="timings" class="sec-pad timings-sec">
   <div class="container">
-    <div class="timings-header reveal">
-      <div class="section-tag">Schedule</div>
-      <h2 class="section-title" style="color:white">Batch <span style="color:var(--gold)">Timings</span></h2>
-      <p class="section-sub">Flexible slots designed to suit students, working adults, and parents managing young learners.</p>
+    <div class="text-center mb-5 reveal">
+      <span class="sec-label sec-label-orange">Schedule</span>
+      <h2 class="sec-title mt-2" style="color:#fff">Batch <span class="c-orange">Timings</span></h2>
+      <p class="sec-sub mx-auto" style="color:rgba(255,255,255,0.55)">Flexible slots to suit students, working adults, and parents.</p>
     </div>
-    <div class="timings-grid reveal">
-      <div class="timing-card">
-        <div class="timing-icon">🌅</div>
-        <div class="timing-label">Morning</div>
-        <div class="timing-time">Flexible</div>
-        <div class="timing-note">Customized as per student availability</div>
-      </div>
-      <div class="timing-card">
-        <div class="timing-icon">🌤️</div>
-        <div class="timing-label">Afternoon</div>
-        <div class="timing-time">2:00 – 2:45 PM</div>
-        <div class="timing-note">Mon – Fri · 45 min sessions</div>
-      </div>
-      <div class="timing-card">
-        <div class="timing-icon">🌙</div>
-        <div class="timing-label">Night</div>
-        <div class="timing-time">8:10 – 9:00 PM</div>
-        <div class="timing-note">Mon – Fri · 50 min sessions</div>
-      </div>
+    <div class="row g-4 justify-content-center mb-4">
+      <div class="col-md-4 col-sm-6 reveal"><div class="timing-card text-center"><div class="tc-icon">🌅</div><div class="tc-slot">Morning</div><div class="tc-time">Flexible</div><div class="tc-note">Customized per student</div></div></div>
+      <div class="col-md-4 col-sm-6 reveal"><div class="timing-card timing-featured text-center"><div class="tc-icon">🌤️</div><div class="tc-slot">Afternoon</div><div class="tc-time">2:00 – 2:45 PM</div><div class="tc-note">Mon – Fri · 45 min</div></div></div>
+      <div class="col-md-4 col-sm-6 reveal"><div class="timing-card text-center"><div class="tc-icon">🌙</div><div class="tc-slot">Night</div><div class="tc-time">8:10 – 9:00 PM</div><div class="tc-note">Mon – Fri · 50 min</div></div></div>
     </div>
-    <div class="batch-info reveal">
-      <div class="batch-item">
-        <div class="batch-num">5</div>
-        <div class="batch-desc">Classes per Week</div>
-      </div>
-      <div class="batch-item">
-        <div class="batch-num">Mon–Fri</div>
-        <div class="batch-desc">Weekly Schedule</div>
-      </div>
-      <div class="batch-item">
-        <div class="batch-num">2 Months</div>
-        <div class="batch-desc">Course Duration</div>
-      </div>
-      <div class="batch-item">
-        <div class="batch-num">Google Meet</div>
-        <div class="batch-desc">Online Platform</div>
-      </div>
+    <div class="stats-strip reveal">
+      <div class="ss-item"><div class="ss-n">5</div><div class="ss-l">Classes/Week</div></div>
+      <div class="ss-sep"></div>
+      <div class="ss-item"><div class="ss-n">Mon–Fri</div><div class="ss-l">Schedule</div></div>
+      <div class="ss-sep"></div>
+      <div class="ss-item"><div class="ss-n">Small</div><div class="ss-l">Batch Sizes</div></div>
+      <div class="ss-sep"></div>
+      <div class="ss-item"><div class="ss-n">Online</div><div class="ss-l">Mode</div></div>
     </div>
   </div>
 </section>
 
-<!-- ─── FEES ─── -->
-<section id="fees">
+<!-- ══ FEES ══ -->
+<section id="fees" class="sec-pad fees-sec">
   <div class="container">
-    <div class="courses-header reveal">
-      <div class="section-tag">Fees</div>
-      <h2 class="section-title">Transparent & <span class="gold">Affordable Fees</span></h2>
-      <p class="section-sub">Quality education that doesn't break the bank. Invest in your child's future today.</p>
+    <div class="text-center mb-5 reveal">
+      <span class="sec-label">Fees</span>
+      <h2 class="sec-title mt-2">Transparent & <span class="c-orange">Affordable Fees</span></h2>
+      <p class="sec-sub mx-auto">Quality education that doesn't break the bank.</p>
     </div>
-    <div class="fees-grid reveal">
-      <div class="fee-card">
-        <div class="fee-badge">Standard</div>
-        <div class="fee-price"><span class="fee-currency">₹</span>3,000</div>
-        <div class="fee-period">per 2-month course</div>
-        <ul class="fee-features">
-          <li>5 classes per week</li>
-          <li>Mon – Fri schedule</li>
-          <li>Google Meet sessions</li>
-          <li>Personal attention</li>
-        </ul>
-        <a href="#contact" class="btn-primary" style="display:block; text-align:center; text-decoration:none;">Enrol Now</a>
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-5 reveal">
+        <div class="fee-card">
+          <div class="fee-tag">Standard</div>
+          <div class="fee-price"><sup>₹</sup>3,000</div>
+          <div class="fee-period">per 2-month course</div>
+          <ul class="fee-list"><li>5 classes per week</li><li>Mon – Fri schedule</li><li>Live online sessions</li><li>Personal attention</li></ul>
+          <a href="#contact" class="btn-orange d-block text-center text-decoration-none">Enrol Now</a>
+        </div>
       </div>
-      <div class="fee-card featured">
-        <div class="fee-badge">Enquire</div>
-        <div class="fee-price" style="font-size:2rem; padding-top:8px">Contact Us</div>
-        <div class="fee-period">for custom pricing & bundles</div>
-        <ul class="fee-features">
-          <li>Multiple course discounts</li>
-          <li>Sibling discounts available</li>
-          <li>Flexible batch timings</li>
-          <li>Tailored study plan</li>
-        </ul>
-        <a href="#contact" class="btn-primary" style="display:block; text-align:center; text-decoration:none;">Get in Touch</a>
+      <div class="col-md-5 reveal">
+        <div class="fee-card fee-featured">
+          <div class="fee-ribbon">Most Popular</div>
+          <div class="fee-tag fee-tag-blue">Custom</div>
+          <div class="fee-price" style="font-size:2.1rem;padding-top:10px">Contact Us</div>
+          <div class="fee-period">for bundles & discounts</div>
+          <ul class="fee-list"><li>Multiple course discounts</li><li>Sibling discounts available</li><li>Flexible batch timings</li><li>Tailored study plan</li></ul>
+          <a href="#contact" class="btn-orange d-block text-center text-decoration-none">Get in Touch</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── WHY CHOOSE US ─── -->
-<section id="why">
+<!-- ══ WHY US ══ -->
+<section id="why" class="sec-pad why-sec">
   <div class="container">
-    <div class="why-header reveal">
-      <div class="section-tag">Why Us</div>
-      <h2 class="section-title">Why Choose <span class="gold">Hidara Academy?</span></h2>
+    <div class="text-center mb-5 reveal">
+      <span class="sec-label">Why Us</span>
+      <h2 class="sec-title mt-2">Why Choose <span class="c-orange">Hidara Academy?</span></h2>
     </div>
-    <div class="why-grid">
-      <div class="why-card reveal">
-        <div class="why-num">01</div>
-        <div class="why-icon">🎯</div>
-        <h3>Personal Attention</h3>
-        <p>Small batch sizes ensure every student receives focused, individual guidance from the teacher.</p>
-      </div>
-      <div class="why-card reveal">
-        <div class="why-num">02</div>
-        <div class="why-icon">💪</div>
-        <h3>Confidence Building</h3>
-        <p>Our approach prioritizes building students' self-confidence in speaking, writing, and learning.</p>
-      </div>
-      <div class="why-card reveal">
-        <div class="why-num">03</div>
-        <div class="why-icon">⭐</div>
-        <h3>Quality Teaching</h3>
-        <p>Experienced, dedicated educator with structured curriculum and proven teaching methods.</p>
-      </div>
-      <div class="why-card reveal">
-        <div class="why-num">04</div>
-        <div class="why-icon">💸</div>
-        <h3>Affordable Fees</h3>
-        <p>Premium education at accessible pricing — because quality learning should be within everyone's reach.</p>
-      </div>
-      <div class="why-card reveal">
-        <div class="why-num">05</div>
-        <div class="why-icon">🌍</div>
-        <h3>Online & Flexible</h3>
-        <p>Learn from anywhere via Google Meet with multiple batch timings to fit your schedule.</p>
-      </div>
-      <div class="why-card reveal">
-        <div class="why-num">06</div>
-        <div class="why-icon">🌟</div>
-        <h3>Holistic Growth</h3>
-        <p>We nurture not just academic skills but character, manners, and spiritual values alongside.</p>
-      </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal"><div class="why-card"><div class="wc-num">01</div><div class="wc-icon">🎯</div><h3 class="wc-title">Personal Attention</h3><p class="wc-text">Small batch sizes ensure every student receives focused, individual guidance from the teacher.</p></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="why-card"><div class="wc-num">02</div><div class="wc-icon">💪</div><h3 class="wc-title">Confidence Building</h3><p class="wc-text">Our approach prioritizes building students' self-confidence in speaking, writing, and learning.</p></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="why-card"><div class="wc-num">03</div><div class="wc-icon">⭐</div><h3 class="wc-title">Quality Teaching</h3><p class="wc-text">Experienced educator with structured curriculum and proven teaching methods.</p></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="why-card"><div class="wc-num">04</div><div class="wc-icon">💸</div><h3 class="wc-title">Affordable Fees</h3><p class="wc-text">Premium education at accessible pricing — quality learning within everyone's reach.</p></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="why-card"><div class="wc-num">05</div><div class="wc-icon">🌍</div><h3 class="wc-title">Online & Flexible</h3><p class="wc-text">Learn from anywhere via live online sessions with multiple batch timings.</p></div></div>
+      <div class="col-md-6 col-lg-4 reveal"><div class="why-card"><div class="wc-num">06</div><div class="wc-icon">🌟</div><h3 class="wc-title">Holistic Growth</h3><p class="wc-text">We nurture not just academic skills but character, manners, and spiritual values.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- ─── TESTIMONIALS ─── -->
-<section id="testimonials">
+<!-- ══ TESTIMONIALS ══ -->
+<section id="testimonials" class="sec-pad testi-sec">
   <div class="container">
-    <div class="test-header reveal">
-      <div class="section-tag">Testimonials</div>
-      <h2 class="section-title">What Our <span class="gold">Students Say</span></h2>
+    <div class="text-center mb-5 reveal">
+      <span class="sec-label">Testimonials</span>
+      <h2 class="sec-title mt-2">What Our <span class="c-orange">Students Say</span></h2>
     </div>
-    <div class="test-grid">
-      <div class="test-card reveal">
-        <div class="test-quote">"</div>
-        <p class="test-text">My child's English improved within just one month! The teacher is so patient and supportive. Highly recommended for any parent.</p>
-        <div class="test-author">
-          <div class="test-avatar">FA</div>
-          <div>
-            <div class="test-name">Fatima A.</div>
-            <div class="test-role">Parent – Spoken English</div>
-            <div class="test-stars">★★★★★</div>
-          </div>
-        </div>
-      </div>
-      <div class="test-card reveal">
-        <div class="test-quote">"</div>
-        <p class="test-text">The phonics classes helped my daughter read independently in just a few weeks. The teacher makes it fun and engaging for the kids.</p>
-        <div class="test-author">
-          <div class="test-avatar">RA</div>
-          <div>
-            <div class="test-name">Rahul A.</div>
-            <div class="test-role">Parent – Phonics Course</div>
-            <div class="test-stars">★★★★★</div>
-          </div>
-        </div>
-      </div>
-      <div class="test-card reveal">
-        <div class="test-quote">"</div>
-        <p class="test-text">I joined the Spoken English class as a working adult and the flexible timings made it perfect. My confidence has grown tremendously.</p>
-        <div class="test-author">
-          <div class="test-avatar">SK</div>
-          <div>
-            <div class="test-name">Sameer K.</div>
-            <div class="test-role">Student – Intermediate English</div>
-            <div class="test-stars">★★★★★</div>
-          </div>
-        </div>
-      </div>
+    <div class="row g-4">
+      <div class="col-md-4 reveal"><div class="testi-card"><div class="tc-stars">★★★★★</div><p class="tc-text">"My child's English improved within just one month! The teacher is so patient and supportive. Highly recommended."</p><div class="tc-author"><div class="tc-av av-orange">FA</div><div><div class="tc-name">Fatima A.</div><div class="tc-role">Parent – Spoken English</div></div></div></div></div>
+      <div class="col-md-4 reveal"><div class="testi-card testi-featured"><div class="tc-stars">★★★★★</div><p class="tc-text">"The phonics classes helped my daughter read independently in just a few weeks. Fun and engaging!"</p><div class="tc-author"><div class="tc-av av-blue">RA</div><div><div class="tc-name">Rahul A.</div><div class="tc-role">Parent – Phonics Course</div></div></div></div></div>
+      <div class="col-md-4 reveal"><div class="testi-card"><div class="tc-stars">★★★★★</div><p class="tc-text">"Joined as a working adult. The flexible timings made it perfect. My confidence has grown tremendously."</p><div class="tc-author"><div class="tc-av av-orange">SK</div><div><div class="tc-name">Sameer K.</div><div class="tc-role">Student – Intermediate English</div></div></div></div></div>
     </div>
   </div>
 </section>
 
-<!-- ─── CONTACT ─── -->
-<section id="contact">
+<!-- ══ CONTACT ══ -->
+<section id="contact" class="sec-pad contact-sec">
   <div class="container">
-    <div class="contact-grid">
-      <div class="contact-info reveal">
-        <div class="section-tag" style="background:rgba(240,165,0,0.1);color:var(--gold);border-color:rgba(240,165,0,0.2)">Contact</div>
-        <h2>Ready to Start <br>Your Journey?</h2>
-        <p>Reach out to us via WhatsApp, phone, or fill in the enquiry form and we'll get back to you within 24 hours.</p>
-
-        <div class="contact-item">
-          <div class="contact-icon">📱</div>
-          <div class="contact-detail">
-            <strong>Phone / WhatsApp</strong>
-            <span>+91 XXXXX XXXXX</span>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">📧</div>
-          <div class="contact-detail">
-            <strong>Email</strong>
-            <span>info@hidaraacademy.com</span>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">📍</div>
-          <div class="contact-detail">
-            <strong>Location</strong>
-            <span>Coimbatore, Tamil Nadu</span>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">💻</div>
-          <div class="contact-detail">
-            <strong>Online Platform</strong>
-            <span>Google Meet / Microsoft Teams</span>
-          </div>
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-5 reveal">
+        <span class="sec-label sec-label-orange">Contact</span>
+        <h2 class="contact-h mt-2">Ready to Start<br>Your Journey?</h2>
+        <p class="contact-sub">We're available 24/7 — chat with Hira AI anytime, or reach us directly!</p>
+        <div class="cinfo"><div class="cinfo-ico"><i class="bi bi-telephone-fill"></i></div><div><strong>Phone / WhatsApp</strong><span>+91 8124089734</span></div></div>
+        <div class="cinfo"><div class="cinfo-ico"><i class="bi bi-envelope-fill"></i></div><div><strong>Email</strong><span>hidaraacademy2026@gmail.com</span></div></div>
+        <div class="cinfo"><div class="cinfo-ico cinfo-orange"><i class="bi bi-robot"></i></div><div><strong>AI Support</strong><span>24/7 via Hira AI Chatbot</span></div></div>
+        <p class="social-lbl mt-4">Follow Us</p>
+        <div class="d-flex gap-3">
+          <a href="https://www.instagram.com/hidara_academy/" class="soc-icon soc-insta"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/hidara-academy/" class="soc-icon soc-linkedin"><i class="bi bi-linkedin"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=61588398845204" class="soc-icon soc-fb"><i class="bi bi-facebook"></i></a>
+          <a href="https://wa.me/8124089734" class="soc-icon soc-whatsapp"><i class="bi bi-whatsapp"></i></a>
         </div>
       </div>
-
-      <div class="contact-form reveal">
-        <h3>Send an Enquiry</h3>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Your Name</label>
-            <input type="text" placeholder="e.g. Ayesha Khan">
-          </div>
-          <div class="form-group">
-            <label>Phone Number</label>
-            <input type="tel" placeholder="+91 XXXXX XXXXX">
+      <div class="col-lg-7 reveal">
+        <div class="contact-form">
+          <h3 class="cf-title">Send an Enquiry</h3>
+          <div class="row g-3">
+            <div class="col-md-6"><label class="flabel">Your Name</label><input type="text" class="finput" placeholder="e.g. Ayesha Khan"></div>
+            <div class="col-md-6"><label class="flabel">Phone Number</label><input type="tel" class="finput" placeholder="+91 XXXXX XXXXX"></div>
+            <div class="col-12"><label class="flabel">Course Interested In</label><select class="finput"><option disabled selected>Select a course...</option><option>Spoken English – Beginner</option><option>Spoken English – Pre-Intermediate</option><option>Spoken English – Intermediate</option><option>Phonics</option><option>Handwriting Improvement</option><option>Academic Subjects</option><option>Islamic Studies</option></select></div>
+            <div class="col-12"><label class="flabel">Your Message</label><textarea class="finput" rows="4" placeholder="Tell us about your goals..."></textarea></div>
+            <div class="col-12"><button class="btn-submit w-100" onclick="handleSubmit(this)">Send Enquiry <i class="bi bi-send-fill ms-2"></i></button></div>
           </div>
         </div>
-        <div class="form-group">
-          <label>Course Interested In</label>
-          <select>
-            <option value="" disabled selected>Select a course...</option>
-            <option>Spoken English – Beginner</option>
-            <option>Spoken English – Pre-Intermediate</option>
-            <option>Spoken English – Intermediate</option>
-            <option>Phonics</option>
-            <option>Handwriting Improvement</option>
-            <option>Academic Subjects</option>
-            <option>Islamic Studies</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Your Message</label>
-          <textarea placeholder="Tell us about your goals or any questions you have..."></textarea>
-        </div>
-        <button class="btn-submit" onclick="handleSubmit()">Send Enquiry ✦</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── FOOTER ─── -->
-<footer>
-  <div style="max-width:1200px; margin:0 auto; padding: 0 5%;">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="nav-logo" style="display:flex; align-items:center; gap:12px; margin-bottom:0;">
-          <div class="nav-logo-icon">🎓</div>
-          <div class="nav-logo-text" style="font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; color:white;">Hidara <span style="color:var(--gold)">Academy</span></div>
+<!-- ══ FOOTER ══ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-4 mb-4">
+      <div class="col-lg-4 col-md-6">
+        <div class="d-flex align-items-center gap-2 mb-3">
+          <img src="hidara logo.jpeg" alt="logo" style="height:60px;border-radius:50px;">
+          <span class="nav-brand-text">
+        <span>
+        <span class="brand-hidara">HIDARA</span><span class="brand-academy">ACADEMY</span> 
+        </span>
+        <span class="brand-tagline">LEARN · IMPROVE · SUCCEED</span>
+      </span>
         </div>
-        <p>Building confident communicators, strong learners, and spiritually grounded individuals — one student at a time.</p>
-        <div class="footer-social">
-          <a href="#" class="social-btn">📘</a>
-          <a href="#" class="social-btn">📸</a>
-          <a href="#" class="social-btn">💬</a>
+        <p class="footer-text">Building confident communicators, strong learners, and spiritually grounded individuals — one student at a time.</p>
+        <div class="d-flex gap-2 mt-3">
+          <a href="https://www.instagram.com/hidara_academy/" class="fsoc"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/hidara-academy/" class="fsoc"><i class="bi bi-linkedin"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=61588398845204" class="fsoc"><i class="bi bi-facebook"></i></a>
+          <a href="https://wa.me/8124089734" class="fsoc"><i class="bi bi-whatsapp"></i></a>
         </div>
       </div>
-      <div class="footer-col">
-        <h4>Programs</h4>
-        <ul>
-          <li><a href="#courses">Spoken English</a></li>
-          <li><a href="#courses">Phonics</a></li>
-          <li><a href="#courses">Handwriting</a></li>
-          <li><a href="#courses">Academic Subjects</a></li>
-          <li><a href="#courses">Islamic Studies</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#timings">Timings</a></li>
-          <li><a href="#fees">Fees</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
+      <div class="col-lg-2 col-md-3 col-6"><h6 class="fhead">Programs</h6><ul class="flist"><li><a href="#courses">Spoken English</a></li><li><a href="#courses">Phonics</a></li><li><a href="#courses">Handwriting</a></li><li><a href="#courses">Academics</a></li><li><a href="#courses">Islamic Studies</a></li></ul></div>
+      <div class="col-lg-2 col-md-3 col-6"><h6 class="fhead">Quick Links</h6><ul class="flist"><li><a href="#home">Home</a></li><li><a href="#about">About Us</a></li><li><a href="#timings">Timings</a></li><li><a href="#fees">Fees</a></li><li><a href="auth.html">Login</a></li></ul></div>
+      <div class="col-lg-4 col-md-6"><h6 class="fhead">24/7 AI Support</h6><p class="footer-text">Hira AI is always available to answer your questions about courses, timings, and fees.</p><button class="footer-chat-btn mt-2" onclick="toggleChat()"><i class="bi bi-robot me-2"></i>Chat with Hira AI</button></div>
     </div>
-    <div class="footer-bottom">
-      <p>© <span>2026</span> Hidara Academy. All Rights Reserved.</p>
-      <p>Made with ❤️ for <span>every learner</span></p>
+    <div class="footer-bar">
+      <p>© <span id="fyear"></span> HIDARA ACADEMY. All Rights Reserved.</p>
+      <p>Knowledge That Travels  <span class="c-orange">Beyond Classrooms 🎓</span></p>
     </div>
   </div>
 </footer>
 
-<!-- WhatsApp Float -->
-<!-- <a href="https://wa.me/8124089734" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">💬</a> -->
-
-<!-- Chat Toggle Button -->
-<div class="chat-bubble">
-  <button class="chat-toggle" onclick="toggleChat()">💬</button>
+<!-- ══ CHATBOT — HIRA AI (Orange + White) ══ -->
+<div class="chat-bubble" id="chatBubble">
+  <div class="chat-notif-dot" id="chatDot"></div>
+  <button class="chat-toggle-btn" onclick="toggleChat()" title="Chat with Hira AI">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2C6.477 2 2 6.145 2 11.243c0 2.906 1.378 5.504 3.543 7.244L4.5 22l4.312-1.545A10.6 10.6 0 0 0 12 20.485c5.523 0 10-4.144 10-9.242S17.523 2 12 2Z" fill="white" opacity="0.95"/>
+    <circle cx="8.5" cy="11.5" r="1.2" fill="#1a56db"/>
+    <circle cx="12" cy="11.5" r="1.2" fill="#1a56db"/>
+    <circle cx="15.5" cy="11.5" r="1.2" fill="#1a56db"/>
+  </svg>
+</button>
 </div>
 
-<!-- Chat Window -->
-<div class="chat-window" id="chatWindow">
-  <div class="chat-header">
-    <div class="chat-header-avatar">🎓</div>
-    <div class="chat-header-info">
-      <div class="chat-header-name">Hidara Assistant</div>
-      <div class="chat-header-status">
-        <span class="status-dot"></span> Online
-      </div>
+<div class="chat-win" id="chatWindow">
+  <div class="chat-hdr">
+    <div class="chat-hdr-av">
+  <img src="hidara logo.jpeg" alt="Hira AI" class="chat-hdr-logo" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+</div>
+    <div class="chat-hdr-info">
+      <div class="chat-hdr-name">HIRA Ai</span></div>
+      <div class="chat-hdr-status"><span class="online-dot"></span> Online · Always Available</div>
     </div>
-    <button class="chat-close" onclick="toggleChat()">✕</button>
-  </div>
-  <div class="chat-messages" id="chatMessages">
-    <div class="msg msg-bot">
-      👋 Hi! Welcome to <strong>Hidara Academy</strong>. 
-      How can I help you today?
+    <div class="d-flex gap-1">
+      <button class="chat-act-btn" onclick="clearChat()" title="Clear chat"><i class="bi bi-trash3"></i></button>
+      <button class="chat-act-btn" onclick="toggleChat()" title="Close"><i class="bi bi-x-lg"></i></button>
     </div>
   </div>
-  <div class="quick-replies">
-    <button class="quick-btn" onclick="sendQuick('What courses are available?')">📚 Courses</button>
-    <button class="quick-btn" onclick="sendQuick('What are the fees?')">💰 Fees</button>
-    <button class="quick-btn" onclick="sendQuick('What are the class timings?')">🕐 Timings</button>
-    <button class="quick-btn" onclick="sendQuick('How to enrol?')">✍️ Enrol</button>
+  <div class="chat-msgs" id="chatMsgs">
+    <div class="cmsg bot-cmsg">👋 Hi! I'm <strong>Hira AI</strong> — your Hidara Academy assistant. How can I help you today?</div>
   </div>
-  <div class="chat-input-area">
-    <input
-      type="text"
-      class="chat-input"
-      id="chatInput"
-      placeholder="Type your message..."
-      onkeypress="if(event.key==='Enter') sendMessage()"
-    />
-    <button class="chat-send" onclick="sendMessage()">➤</button>
+  <div class="chat-quick" id="chatQuick">
+    <button class="qbtn" onclick="sendQuick('What courses are available?')">📚 Courses</button>
+    <button class="qbtn" onclick="sendQuick('What are the fees?')">💰 Fees</button>
+    <button class="qbtn" onclick="sendQuick('What are the class timings?')">🕐 Timings</button>
+    <button class="qbtn" onclick="sendQuick('How to enrol?')">✍️ Enrol</button>
+  </div>
+  <div class="chat-input-box">
+    <div class="chat-input-row">
+      <input type="text" id="chatInput" class="chat-inp" placeholder="Ask Hira AI anything..." onkeypress="if(event.key==='Enter')sendMessage()" autocomplete="off">
+      <button class="chat-send-btn" onclick="sendMessage()"><i class="bi bi-send-fill"></i></button>
+    </div>
+    <div class="chat-powered-by">Powered by <strong>HIDARA ACADEMY</strong></div>
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
