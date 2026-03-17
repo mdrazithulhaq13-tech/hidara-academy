@@ -206,7 +206,11 @@
           <div class="cc-icon orange-icon">🗣️</div>
           <h3 class="cc-title">Spoken English</h3>
           <p class="cc-text">Build real-world English fluency through structured speaking practice, grammar, and conversation at three progressive levels.</p>
-          <div class="d-flex flex-wrap gap-2 mb-3"><span class="ctag blue-ctag">Beginner</span><span class="ctag blue-ctag">Pre-Intermediate</span><span class="ctag blue-ctag">Intermediate</span></div>
+         <div class="d-flex flex-nowrap gap-2 mb-3 overflow-hidden">
+            <span class="ctag blue-ctag">Beginner</span>
+            <span class="ctag blue-ctag">Pre-Intermediate</span>
+            <span class="ctag blue-ctag">Intermediate</span>
+          </div>
           <div class="cc-meta"><span>👤 Adults</span><span>💻 Online</span><span>⏱ 2 Months</span></div>
         </div>
       </div>
@@ -362,39 +366,118 @@
 <section id="contact" class="sec-pad contact-sec">
   <div class="container">
     <div class="row g-5 align-items-start">
+
+      <!-- Left: Contact Info -->
       <div class="col-lg-5 reveal">
         <span class="sec-label sec-label-orange">Contact</span>
         <h2 class="contact-h mt-2">Ready to Start<br>Your Journey?</h2>
         <p class="contact-sub">We're available 24/7 — chat with Hira AI anytime, or reach us directly!</p>
-        <div class="cinfo"><div class="cinfo-ico"><i class="bi bi-telephone-fill"></i></div><div><strong>Phone / WhatsApp</strong><span>+91 8124089734</span></div></div>
-        <div class="cinfo"><div class="cinfo-ico"><i class="bi bi-envelope-fill"></i></div><div><strong>Email</strong><span>hidaraacademy2026@gmail.com</span></div></div>
-        <div class="cinfo"><div class="cinfo-ico cinfo-orange"><i class="bi bi-robot"></i></div><div><strong>AI Support</strong><span>24/7 via Hira AI Chatbot</span></div></div>
+
+        <div class="cinfo">
+          <div class="cinfo-ico"><i class="bi bi-telephone-fill"></i></div>
+          <div>
+            <strong>Phone / WhatsApp</strong>
+            <span>+91 8124089734</span>
+          </div>
+        </div>
+
+        <div class="cinfo">
+          <div class="cinfo-ico"><i class="bi bi-envelope-fill"></i></div>
+          <div>
+            <strong>Email</strong>
+            <span>hidaraacademy2026@gmail.com</span>
+          </div>
+        </div>
+
+        <div class="cinfo">
+          <div class="cinfo-ico cinfo-orange"><i class="bi bi-robot"></i></div>
+          <div>
+            <strong>AI Support</strong>
+            <span>24/7 via Hira AI Chatbot</span>
+          </div>
+        </div>
+
         <p class="social-lbl mt-4">Follow Us</p>
         <div class="d-flex gap-3">
-          <a href="https://www.instagram.com/hidara_academy/" class="soc-icon soc-insta"><i class="bi bi-instagram"></i></a>
-          <a href="https://www.linkedin.com/company/hidara-academy/" class="soc-icon soc-linkedin"><i class="bi bi-linkedin"></i></a>
-          <a href="https://www.facebook.com/profile.php?id=61588398845204" class="soc-icon soc-fb"><i class="bi bi-facebook"></i></a>
-          <a href="https://wa.me/8124089734" class="soc-icon soc-whatsapp"><i class="bi bi-whatsapp"></i></a>
+          <a href="https://www.instagram.com/hidara_academy/" target="_blank" class="soc-icon soc-insta"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/hidara-academy/" target="_blank" class="soc-icon soc-linkedin"><i class="bi bi-linkedin"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=61588398845204" target="_blank" class="soc-icon soc-fb"><i class="bi bi-facebook"></i></a>
+          <a href="https://wa.me/918124089734" target="_blank" class="soc-icon soc-whatsapp"><i class="bi bi-whatsapp"></i></a>
         </div>
       </div>
+
+      <!-- Right: Enquiry Form -->
       <div class="col-lg-7 reveal">
         <div class="contact-form">
           <h3 class="cf-title">Send an Enquiry</h3>
-          <div class="row g-3">
-            <div class="col-md-6"><label class="flabel">Your Name</label><input type="text" class="finput" placeholder="e.g. Ayesha Khan"></div>
-            <div class="col-md-6"><label class="flabel">Phone Number</label><input type="tel" class="finput" placeholder="+91 XXXXX XXXXX"></div>
-            <div class="col-12"><label class="flabel">Course Interested In</label><select class="finput"><option disabled selected>Select a course...</option><option>Spoken English – Beginner</option><option>Spoken English – Pre-Intermediate</option><option>Spoken English – Intermediate</option><option>Phonics</option><option>Handwriting Improvement</option><option>Academic Subjects</option><option>Islamic Studies</option></select></div>
-            <div class="col-12"><label class="flabel">Your Message</label><textarea class="finput" rows="4" placeholder="Tell us about your goals..."></textarea></div>
-            <div class="col-12"><button class="btn-submit w-100" onclick="handleSubmit(this)">Send Enquiry <i class="bi bi-send-fill ms-2"></i></button></div>
+          <p class="cf-subtitle">Fill in your details and we'll get back to you within 24 hours.</p>
+
+          <form id="enquiryForm" name="hidara-enquiry" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="hidara-enquiry">
+            <input type="hidden" name="bot-field" style="display:none">
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="flabel">Your Name</label>
+                <input type="text" name="name" class="finput" placeholder="e.g. Ayesha Khan" required>
+              </div>
+              <div class="col-md-6">
+                <label class="flabel">Phone Number</label>
+                <input type="tel" name="phone" class="finput" placeholder="+91 XXXXX XXXXX" required>
+              </div>
+              <div class="col-12">
+                <label class="flabel">Course Interested In</label>
+                <div class="select-wrap">
+                  <select name="course" class="finput select-input" required>
+                    <option value="" disabled selected>Select a course...</option>
+                    <option>Spoken English – Beginner</option>
+                    <option>Spoken English – Pre-Intermediate</option>
+                    <option>Spoken English – Intermediate</option>
+                    <option>Phonics</option>
+                    <option>Handwriting Improvement</option>
+                    <option>Academic Subjects</option>
+                    <option>Islamic Studies</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12">
+                <label class="flabel">Your Message</label>
+                <textarea name="message" class="finput" rows="4" placeholder="Tell us about your goals..."></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn-submit w-100" id="submitBtn">
+                  Send Enquiry <i class="bi bi-send-fill ms-2"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Success message -->
+          <div id="formSuccess" style="display:none; text-align:center; padding:30px 20px;">
+            <div style="font-size:3.5rem; margin-bottom:14px;">✅</div>
+            <h4 style="color:white; font-family:'Playfair Display',serif; margin-bottom:10px;">Enquiry Sent!</h4>
+            <p style="color:rgba(255,255,255,0.65); font-size:0.9rem; line-height:1.7;">Thank you! We'll get back to you within 24 hours via WhatsApp or email.</p>
+            <button onclick="resetForm()" style="margin-top:16px; background:var(--orange); color:#0d1b3e; border:none; padding:10px 24px; border-radius:8px; font-weight:700; cursor:pointer; font-family:'DM Sans',sans-serif;">
+              Send Another
+            </button>
           </div>
+
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
+
 <!-- ══ FOOTER ══ -->
 <footer class="site-footer">
+  
+<!-- HIDARA ACADEMY — hover wave effect -->
+<div class="ha-section">
+  <div class="ha-text" id="haText"></div>
+</div>
+
   <div class="container">
     <div class="row g-4 mb-4">
       <div class="col-lg-4 col-md-6">
